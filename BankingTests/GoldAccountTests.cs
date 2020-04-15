@@ -13,7 +13,7 @@ namespace BankingTests
         public void GoldAccountsGetABonusOnDeposits()
         {
             // Given
-            var account = new BankAccount();
+            var account = new GoldAccount();
             var originalBalance = account.GetBalance();
             var amountToDeposit = 100M;
             // When
