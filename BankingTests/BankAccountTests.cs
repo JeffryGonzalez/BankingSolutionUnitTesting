@@ -8,41 +8,49 @@ namespace BankingTests
 {
     public class BankAccountTests
     {
+        BankAccount Account;
+        decimal OpeningBalance;
+
+        public BankAccountTests()
+        {
+            Account = new BankAccount(new DummyBonusCalculator());
+            OpeningBalance = Account.GetBalance();
+        }
         [Fact]
         public void NewAccountsHaveAppropriateBalance()
         {
             // Write the Code You Wish You Had (WTCYWYH) (Corey Haines)
 
-            BankAccount account = new BankAccount();
-
-            decimal balance = account.GetBalance();
-
-            Assert.Equal(1200M, balance);
+            Assert.Equal(1200M, OpeningBalance);
         }
 
         [Fact]
         public void DepositingIncreasesBalance()
         {
             // (Arrange) Given - I have a new account and I have the balance of that account
-            var account = new BankAccount();
-            var openingBalance = account.GetBalance();
             var amountToDeposit = 100M;
             // (Act) When I deposit $100.
-            account.Deposit(amountToDeposit);
+            Account.Deposit(amountToDeposit);
             // (Assert) Then the accounts balance should be the opening balance plus 100.
-            Assert.Equal(openingBalance + amountToDeposit, account.GetBalance());
+            Assert.Equal(OpeningBalance + amountToDeposit, Account.GetBalance());
         }
 
         [Fact]
         public void WithdrawalsDecreaseBalance()
         {
-            var account = new BankAccount();
-            var openingBalance = account.GetBalance();
             var amountToWithdraw = 100M;
             // (Act) When I deposit $100.
-            account.Withdraw(amountToWithdraw);
+            Account.Withdraw(amountToWithdraw);
             // (Assert) Then the accounts balance should be the opening balance plus 100.
-            Assert.Equal(openingBalance - amountToWithdraw, account.GetBalance());
+            Assert.Equal(OpeningBalance - amountToWithdraw, Account.GetBalance());
+        }
+    }
+
+    public class DummyBonusCalculator : ICalculateAccountBonuses
+    {
+        public decimal GetDepositBonusFor(decimal balance, decimal amountToDeposit)
+        {
+            return 0;
         }
     }
 }
