@@ -19,14 +19,20 @@ namespace BankingDomain
 
         public void Deposit(decimal amountToDeposit)
         {
-            var bonus = 0;
-           // decimal bonus = BonusCalculator.GetDepositBonusFor(balance, amountToDeposit);
+            decimal bonus = BonusCalculator.GetDepositBonusFor(balance, amountToDeposit);
             balance += amountToDeposit + bonus;
         }
 
         public void Withdraw(decimal amountToWithdraw)
         {
-            balance -= amountToWithdraw;
+            if (amountToWithdraw > balance)
+            {
+                throw new OverdraftException();
+            }
+            else
+            {
+                balance -= amountToWithdraw;
+            }
         }
     }
 }
