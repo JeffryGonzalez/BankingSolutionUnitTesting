@@ -21,7 +21,7 @@ namespace BankingDomain
 
         public void Deposit(decimal amountToDeposit)
         {
-            decimal bonus = BonusCalculator.GetDepositBonusFor(balance, amountToDeposit);
+            decimal bonus = BonusCalculator.GetDepositBonusFor(balance, amountToDeposit); // Query
             balance += amountToDeposit + bonus;
         }
 
@@ -34,7 +34,7 @@ namespace BankingDomain
             else
             {
                 balance -= amountToWithdraw;
-                Feds.Notify(this, amountToWithdraw);
+                Feds.Notify(this, amountToWithdraw); // Command "Tell Don't Ask"
             }
         }
     }
