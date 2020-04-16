@@ -14,10 +14,10 @@ namespace BankingDomain
         {
             TheSystemTime = theSystemTime;
         }
-        public StandardBonusCalculator() // Use this one for realz.
-        {
-            TheSystemTime = new SystemTime();
-        }
+        //public StandardBonusCalculator() // Use this one for realz.
+        //{
+        //    TheSystemTime = new SystemTime();
+        //}
 
         public decimal CalculateBonusUsingStandardAlgorithm(decimal balance, decimal amount)
         {

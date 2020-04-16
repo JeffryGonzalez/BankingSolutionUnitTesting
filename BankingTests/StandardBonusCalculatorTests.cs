@@ -57,7 +57,7 @@ namespace BankingTests
 
             // simulating really creating the account
 
-            ICalculateAccountBonuses c2 = new StandardBonusCalculator();
+            // ICalculateAccountBonuses c2 = new StandardBonusCalculator();
             
         }
 
