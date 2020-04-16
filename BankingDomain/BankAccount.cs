@@ -21,6 +21,7 @@ namespace BankingDomain
 
         public void Deposit(decimal amountToDeposit)
         {
+            
             decimal bonus = BonusCalculator.GetDepositBonusFor(balance, amountToDeposit); // Query
             balance += amountToDeposit + bonus;
         }
