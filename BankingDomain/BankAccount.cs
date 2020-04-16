@@ -2,7 +2,7 @@
 
 namespace BankingDomain
 {
-    public class BankAccount
+    public class BankAccount :  IGiveFederalRegulatorsAccountInformation
     {
         private decimal balance = 1200;
         private ICalculateAccountBonuses BonusCalculator;
@@ -14,6 +14,7 @@ namespace BankingDomain
             Feds = feds;
         }
 
+        public int AccountNumber { get; set; }
         public decimal GetBalance()
         {
             return balance;
@@ -21,7 +22,7 @@ namespace BankingDomain
 
         public void Deposit(decimal amountToDeposit)
         {
-            
+
             decimal bonus = BonusCalculator.GetDepositBonusFor(balance, amountToDeposit); // Query
             balance += amountToDeposit + bonus;
         }

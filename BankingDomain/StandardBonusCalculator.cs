@@ -41,7 +41,7 @@ namespace BankingDomain
         }
 
         // extrand and override patter from Michael Feathers WEWLC
-        protected virtual bool BeforeCutoff()
+        private  bool BeforeCutoff()
         {
             return TheSystemTime.GetCurrent().Hour <= 16;
         }

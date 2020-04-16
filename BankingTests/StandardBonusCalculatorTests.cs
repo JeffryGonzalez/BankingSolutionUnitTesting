@@ -63,19 +63,19 @@ namespace BankingTests
 
     }
 
-    public class TestingBonusCalculator : StandardBonusCalculator
-    {
-        private bool IsBeforeCutoff;
+    //public class TestingBonusCalculator : StandardBonusCalculator
+    //{
+    //    private bool IsBeforeCutoff;
 
-        public TestingBonusCalculator(bool isBeforeCutoff)
-        {
-            IsBeforeCutoff = isBeforeCutoff;
-        }
+    //    public TestingBonusCalculator(bool isBeforeCutoff)
+    //    {
+    //        IsBeforeCutoff = isBeforeCutoff;
+    //    }
 
-        protected override bool BeforeCutoff()
-        {
-            return IsBeforeCutoff;
-        }
-    }
+    //    protected override bool BeforeCutoff()
+    //    {
+    //        return IsBeforeCutoff;
+    //    }
+    //}
 
 }
